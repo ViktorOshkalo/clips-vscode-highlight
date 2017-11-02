@@ -1,0 +1,148 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "clips",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#class"
+		},	
+		{
+			"include": "#class_prop"
+		},		
+		{
+			"include": "#varible"
+		},		
+		{
+			"include": "#array"
+		},			
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#logical"
+		},		
+		{
+			"include": "#functions"
+		},	
+		{
+			"include": "#number-dec"
+		},
+		{
+			"include": "#number-float"
+		},		
+		{
+			"include": "#comment"
+		}		
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.clips",
+				"match": "\\b(if|then|else|loop-for-count|while|do-for-all-instances|foreach|return|break|and|or|not|eq|neq|do-for-instance)\\b\\s"
+			}]
+		},		
+		"class": {
+			"patterns": [{
+				"name": "support.class.clips",
+				"match": "\\b(def)\\S*\\b"
+			},
+			{
+				"name": "support.class.clips",
+				"match": "\\b(TRUE|FALSE)\\b"
+			}
+			
+			]		
+		},
+		"class_prop": {
+			"patterns": [{
+				"name": "support.type.property-name.clips",
+				"match": "\\b(is-a|role|slot|multislot|acces|create-accessor|access|declare|salience)\\b\\s"
+			}]		
+		},		
+		"varible": {
+			"patterns": [
+			{
+				"name": "support.variable.clips",
+				"match": "\\?\\S*\\b"
+			},
+			{
+				"name": "support.variable.clips",
+				"match": "\\?"
+			}
+			]		
+		},
+		"array": {
+			"patterns": [{
+				"name": "variable.parameter.clips",
+				"match": "\\$\\?\\S*\\b"
+			}]		
+		},		
+		"functions": {
+			"patterns": [
+				{
+					"name": "support.function.clips",
+					"match": "\\b(bind|assert|make-instance|delete|send|ShowMessage|str-cat|length|abs|InitProgress|ReportProgress|instance-existp|find-all-instances)\\b\\s"
+				},
+				{
+					"name": "support.function.clips",
+					"match": "(\\b(create|length|insert|nth)\\$)"
+				}
+			
+			]
+		},
+		"logical": {
+			"patterns": [{
+				"name": "keyword.operator.clips",
+				"match": "\\b(and|or|not)\\b\\s"
+			}]
+		},	
+		"numeric": {
+			"patterns": [{
+				"name": "support.class.clips",
+				"match": "\\s(\\d)*\\s"
+			}]
+		},
+		"number-float": {
+			"patterns": [{
+				"name": "constant.numeric.float.clips",
+				"match": "(?x)\n  (?<! \\w)(?:\n    (?:\n      \\.[0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\. [0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\.\n    ) (?: [eE][+-]?[0-9](?: _?[0-9] )* )?\n    |\n    [0-9](?: _?[0-9] )* (?: [eE][+-]?[0-9](?: _?[0-9] )* )\n  )([jJ])?\\b\n"
+			}]	
+		},	
+		"number-dec": {
+			"patterns": [{
+				"name": "constant.numeric.dec.clips",
+				"match": "(?x)\n  (?<![\\w\\.])(?:\n      [1-9](?: _?[0-9] )*\n      |\n      0+\n      |\n      [0-9](?: _?[0-9] )* ([jJ])\n      |\n      0 ([0-9]+)(?![eE\\.])\n  )\\b\n"
+			}]	
+		},		
+		"strings": {
+			"name": "string.quoted.double.clips",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.clips",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comment": {
+			"name": "comment.line",
+			"begin": "(\\;)",
+			"beginCaptures": {
+				"1": {
+					"name": "comment.line"
+				}
+			},
+			"end": "($)",
+			"patterns": [
+				{
+					"name": "comment.line",
+					"match": "(?:\\b\\*\\b)"
+				}
+			]
+		}
+	},
+	"scopeName": "source.clips"
+}

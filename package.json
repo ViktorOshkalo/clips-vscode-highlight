@@ -1,0 +1,26 @@
+{
+    "name": "clips",
+    "displayName": "clips-ext",
+    "description": "clips highlight",
+    "version": "0.0.1",
+    "publisher": "ViktorOshkalo",
+    "engines": {
+        "vscode": "^1.17.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "clips",
+            "aliases": ["clips", "clips"],
+            "extensions": [".clp", ".add"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "clips",
+            "scopeName": "source.clips",
+            "path": "./syntaxes/clips.tmLanguage.json"
+        }]
+    }
+}
