@@ -38,10 +38,16 @@
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
+			"patterns": [
+			{
 				"name": "keyword.control.clips",
 				"match": "\\b(if|then|else|loop-for-count|while|do-for-all-instances|foreach|return|break|and|or|not|eq|neq|do-for-instance)\\b\\s"
-			}]
+			},
+			{
+				"name": "keyword.control.clips",
+				"match": "\\b(return|do)\\b"
+			}			
+			]
 		},		
 		"class": {
 			"patterns": [{
